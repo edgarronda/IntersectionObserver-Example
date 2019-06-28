@@ -5,9 +5,13 @@ const options = {
     threshold: 1,
 }
 
-function callback(entries, observer){
-    $video.play()
-}
+function callback(entries, observer) {
+    if (entries[0].isIntersecting) {
+      $video.play()
+    } else {
+      $video.pause()
+    }
+  }
 
 const observer = new IntersectionObserver(callback, options)
 
